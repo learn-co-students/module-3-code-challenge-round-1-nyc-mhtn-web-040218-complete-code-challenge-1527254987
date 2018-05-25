@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 console.log('DOM LOADED')
 
-
+//load image
   function loadImage() {
     fetch(imageURL).then(r=>r.json()).then(renderImage)
   }
 
 
+// render image
   function renderImage(imageJson) {
     const imageTag = document.getElementById('image')
     imageTag.setAttribute('src', imageJson.url)
@@ -49,6 +50,8 @@ console.log('DOM LOADED')
     newComment.setAttribute('id',`comment-${resp.id}`)
   }
 
+
+//add like event
 likeButton.addEventListener('click', (e)=>{
   console.log("ADDING LIKE")
 
@@ -63,6 +66,8 @@ likeButton.addEventListener('click', (e)=>{
    body: JSON.stringify({image_id:8})})
 })
 
+
+// new comment event
 commentForm.addEventListener('submit', (e)=>{
   e.preventDefault()
   const imageComments = document.getElementById('comments')
@@ -83,6 +88,8 @@ commentForm.addEventListener('submit', (e)=>{
   console.log('SUBMIT')
 })
 
+
+/// delete event
 imageComments.addEventListener('click', (e)=>{
   if(e.target.type === 'button'){
     const selectedComment = document.getElementById(e.target.parentElement.id)
