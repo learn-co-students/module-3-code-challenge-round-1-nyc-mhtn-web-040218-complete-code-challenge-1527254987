@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(res => res.json())
     .then(json => console.log(json))
+    window.alert("You like this? Wow.")
   })
 
   commentSubmit.addEventListener('click', function(e){
@@ -78,5 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(res => res.json())
       .then(json => console.log(json))
       commentInput.value = ""
+      window.alert("Boom! That's a comment!")
     })
   })
